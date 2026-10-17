@@ -10,11 +10,11 @@ const world = (on: On) => {
   const toasts: string[] = []
   mock.store(on)
   on('session.measure', ($, e) => ({ changed: e.changed }))
-  on('tool.list', () => [] as never)
+  on('tool.list', () => ({ value: [] }) as never)
   on('ui.toast', ($, e) => {
     toasts.push(e.text)
 
-    return {} as never
+    return { value: undefined } as never
   })
 
   return toasts
