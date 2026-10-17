@@ -71,9 +71,10 @@ export const register: Register = on => {
 
   on('ui.render', { component: 'AbovePrompt' }, async ($, e, next) => {
     const list = await read($, limits)
-    if (e.props.hasSurvey || list.length === 0) return next(e)
+    if (e.props.hasSurvey) return next(e)
     const at = (await read($, now)) || Date.now()
     const { Box, Text } = $.ui.resolve(e)
+    if (list.length === 0) return <Text dimColor>usage-meter: no usage reading in this session yet</Text>
 
     return (
       <Box flexDirection="row" flexWrap="wrap" columnGap={3}>

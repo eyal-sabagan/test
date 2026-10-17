@@ -1,6 +1,6 @@
 {
   "name": "usage-meter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shows the 5-hour and weekly subscription usage above the prompt, with /usage-meter and push alerts at 80% and 95%",
   "types": "./types/index.d.ts"
 }
